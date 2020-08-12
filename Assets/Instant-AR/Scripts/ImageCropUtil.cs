@@ -48,6 +48,7 @@ public class ImageCropUtil : MonoBehaviour
             else
             {
                 targetPath = targetFolder + uid + filename;
+
             }
 
             Dictionary<string, string> postHeader = new Dictionary<string, string>();

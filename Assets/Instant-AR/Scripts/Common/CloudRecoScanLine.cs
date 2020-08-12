@@ -29,7 +29,8 @@ public class CloudRecoScanLine : MonoBehaviour
 
     void Start()
     {
-        m_Camera = DigitalEyewearARController.Instance.PrimaryCamera ?? Camera.main;
+        //m_Camera = DigitalEyewearARController.Instance.PrimaryCamera ?? Camera.main;
+        m_Camera = Camera.main;
         m_Renderer = GetComponent<Renderer>();
         m_CloudRecoBehaviour = FindObjectOfType<CloudRecoBehaviour>();
 

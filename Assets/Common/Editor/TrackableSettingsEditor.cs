@@ -40,16 +40,16 @@ public class TrackableSettingsEditor : Editor
         // draw a dropdown to select between the two most common fusion provider options
         int selectedIndex = 0; // default == FusionProviderType.ALL
                     
-        if (m_FusionProviderType.intValue == (int)FusionProviderType.OPTIMIZE_IMAGE_TARGETS_AND_VUMARKS)
+        if (m_FusionProviderType.intValue == (int)FusionProviderType.ALL)
             selectedIndex = 1;
         
         int newIndex = EditorGUILayout.Popup(new GUIContent("Fusion Mode", FUSION_TOOLTIP), selectedIndex, 
             new[] {"Optimize for Model Targets and Ground Plane", "Optimize for Image Targets and VuMarks"});
 
         if (newIndex == 1)
-            m_FusionProviderType.intValue = (int)FusionProviderType.OPTIMIZE_IMAGE_TARGETS_AND_VUMARKS;
+            m_FusionProviderType.intValue = (int)FusionProviderType.ALL;
         else
-            m_FusionProviderType.intValue = (int)FusionProviderType.OPTIMIZE_MODEL_TARGETS_AND_SMART_TERRAIN;
+            m_FusionProviderType.intValue = (int)FusionProviderType.ALL;
         
         serializedObject.ApplyModifiedProperties();
     }

@@ -158,35 +158,7 @@ namespace Vuforia.EditorClasses
 
         static void CheckVuforiaConfigurationForEyewearSettings(BuildTargetGroup buildTargetGroup)
         {
-            VuforiaConfiguration vuforiaConfiguration = VuforiaConfiguration.Instance;
 
-            DigitalEyewearARController.EyewearType eyewearType = vuforiaConfiguration.DigitalEyewear.EyewearType;
-            DigitalEyewearARController.SeeThroughConfiguration opticalConfig = vuforiaConfiguration.DigitalEyewear.SeeThroughConfiguration;
-
-            switch (buildTargetGroup)
-            {
-                case BuildTargetGroup.Android:
-                    if (eyewearType == DigitalEyewearARController.EyewearType.VideoSeeThrough ||
-                        (eyewearType == DigitalEyewearARController.EyewearType.OpticalSeeThrough &&
-                        opticalConfig == DigitalEyewearARController.SeeThroughConfiguration.Vuforia))
-                    {
-                        EnableVR(buildTargetGroup);
-                    }
-                    break;
-                case BuildTargetGroup.iOS:
-                    if (eyewearType == DigitalEyewearARController.EyewearType.VideoSeeThrough)
-                    {
-                        EnableVR(buildTargetGroup);
-                    }
-                    break;
-                case BuildTargetGroup.WSA:
-                    if (eyewearType == DigitalEyewearARController.EyewearType.OpticalSeeThrough &&
-                        opticalConfig == DigitalEyewearARController.SeeThroughConfiguration.HoloLens)
-                    {
-                        EnableVR(buildTargetGroup);
-                    }
-                    break;
-            }
         }
     }
 }

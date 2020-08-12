@@ -70,7 +70,8 @@ public class ScanLine : MonoBehaviour
             }
 
             // Get the main camera
-            Camera cam = DigitalEyewearARController.Instance.PrimaryCamera ?? Camera.main;
+            //Camera cam = DigitalEyewearARController.Instance.PrimaryCamera ?? Camera.main;
+            Camera cam = Camera.main;
             float viewAspect = cam.pixelWidth / (float)cam.pixelHeight;
             float fovY = Mathf.Deg2Rad * cam.fieldOfView;
             float depth = 1.02f * cam.nearClipPlane;

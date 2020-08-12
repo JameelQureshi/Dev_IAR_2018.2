@@ -192,9 +192,7 @@ internal class NewVersionPopup
 
     public static void ShowExtensionMissingPopup()
     {
-        var userConfirmed = EditorUtility.DisplayDialog(DIALOG_TITLE, EXTENSION_MISSING_BODY, SHOW_PLAYER_SETTINGS, CLOSE_BUTTON_MESSAGE);
-        if (userConfirmed)
-            EditorApplication.ExecuteMenuItem("Edit/Project Settings/Player");
+
     }
 
 
