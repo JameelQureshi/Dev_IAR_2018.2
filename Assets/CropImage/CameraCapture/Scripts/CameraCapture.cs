@@ -22,11 +22,11 @@ public class CameraCapture : MonoBehaviour {
 
 	#if !UNITY_EDITOR && UNITY_IOS
 
-	//[System.Runtime.InteropServices.DllImport( "__Internal" )]
-	//private static extern void iTakePhoto();
+	[System.Runtime.InteropServices.DllImport( "__Internal" )]
+	private static extern void iTakePhoto();
 
-	//[System.Runtime.InteropServices.DllImport( "__Internal" )]
-	//private static extern void iPickPhoto();
+	[System.Runtime.InteropServices.DllImport( "__Internal" )]
+	private static extern void iPickPhoto();
 
 	#endif
 
@@ -41,52 +41,52 @@ public class CameraCapture : MonoBehaviour {
 
 	public void takePhoto()
 	{
-		//#if !UNITY_EDITOR && UNITY_ANDROID
-		//if(PVC != null)
-		//{
-		//    PVC.CallStatic("TakePhoto");
-		//}
-		//#elif !UNITY_EDITOR && UNITY_IOS
-		//iTakePhoto();
-		//#endif
+		#if !UNITY_EDITOR && UNITY_ANDROID
+		if(PVC != null)
+		{
+		    PVC.CallStatic("TakePhoto");
+		}
+		#elif !UNITY_EDITOR && UNITY_IOS
+		iTakePhoto();
+		#endif
 	}
 
 	public void pickPhoto()
 	{
-		//#if !UNITY_EDITOR && UNITY_ANDROID
-		//if(PVC != null)
-		//{
-		//	PVC.CallStatic("PickPhoto");
-		//}
-		//#elif !UNITY_EDITOR && UNITY_IOS
-		//iPickPhoto();
-		//#endif
+		#if !UNITY_EDITOR && UNITY_ANDROID
+		if(PVC != null)
+		{
+			PVC.CallStatic("PickPhoto");
+		}
+		#elif !UNITY_EDITOR && UNITY_IOS
+		iPickPhoto();
+		#endif
 	}
 
 	private void OnTakePhotoComplete(string path)
 	{
-		//var handler = TakePhotoCompleted;
-		//if (handler != null)
-		//{
-		//	handler(path);
-		//}
+		var handler = TakePhotoCompleted;
+		if (handler != null)
+		{
+			handler(path);
+		}
 	}
 
 	private void OnPickComplete(string path)
 	{
-		//var handler = PickCompleted;
-		//if (handler != null)
-		//{
-		//	handler(path);
-		//}
+		var handler = PickCompleted;
+		if (handler != null)
+		{
+			handler(path);
+		}
 	}
 
 	private void OnFailure(string message)
 	{
-		//var handler = Failed;
-		//if (handler != null)
-		//{
-		//	handler(message);
-		//}
+		var handler = Failed;
+		if (handler != null)
+		{
+			handler(message);
+		}
 	}
 }
